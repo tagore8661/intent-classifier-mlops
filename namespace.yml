@@ -1,0 +1,4 @@
+apiVersion: v1              # API Version for Namespace
+kind: Namespace             # Type of Resource
+metadata:
+  name: intent-namespace    # Name of our isolated workspace
