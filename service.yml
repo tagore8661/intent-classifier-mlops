@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: intent-service
+  namespace: intent-namespace
+spec:
+  type: NodePort                  # Exposes IP on Node (Use 'ClusterIP' for internal only)
+  selector:
+    app: intent-classifier        # LINKS Service to Deployment Pods (Critical Link)
+  ports:
+    - port: 80                    # The Service listens on Port 80 (external)
+      targetPort: 6000            # Forwards traffic to Container Port 6000 (internal)
