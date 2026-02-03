@@ -1,0 +1,20 @@
+apiVersion: networking.k8s.io/v1
+kind: Ingress
+metadata:
+  name: intent-ingress
+  namespace: intent-namespace
+  annotations:
+    kubernetes.io/ingress.class: traefik
+spec:
+  ingressClassName: traefik
+  rules:
+  - host: example.com
+    http:
+      paths:
+      - path: /predict
+        pathType: Prefix
+        backend:
+          service:
+            name: intent-service
+            port:
+              number: 80
