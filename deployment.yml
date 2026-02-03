@@ -1,0 +1,20 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: intent-classifier         # Name of the Deployment
+  namespace: intent-namespace     # Deploys into our specific workspace
+spec:
+  replicas: 2                     # Maintain 2 copies for high availability
+  selector:
+    matchLabels:
+      app: intent-classifier      # MANAGING pods with this label (Critical Link)
+  template:                       # The Pod Blueprint (What to run)
+    metadata:
+      labels:
+        app: intent-classifier    # Label assigned to every new Pod
+    spec:
+      containers:
+      - name: intent-classifier
+        image: tagore8661/intent-classifier-mlops:v1 # The Image from Docker Hub
+        ports:
+        - containerPort: 6000     # The port the container listens on
