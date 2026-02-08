@@ -45,3 +45,15 @@ curl -X POST http://localhost:6000/predict \
      -H "Content-Type: application/json" \
      -d '{"text": "Hi, How are you?"}'
 ```
+
+---
+
+***📌 NOTE:***
+## 🌿 Repository Branches
+
+This repository contains `4 branches`, each demonstrating different deployment strategies:
+
+-  **[main](https://github.com/tagore8661/intent-classifier-mlops)**: Base branch containing the core MLOps implementation with local model training and Flask API serving
+-  **[virtual-machines](https://github.com/tagore8661/intent-classifier-mlops/tree/virtual-machines)**: Virtual machine deployment with user-data.sh script for automated VM setup and configuration
+-  **[k8s](https://github.com/tagore8661/intent-classifier-mlops/tree/k8s)**: Kubernetes deployment with complete manifests including Dockerfile, deployment.yml, service.yml, ingress.yml, and namespace.yml for containerized deployment
+-  **[kserve](https://github.com/tagore8661/intent-classifier-mlops/tree/kserve)**: KServe serverless deployment with intent-classifier-kserve.yml for autoscaling model serving on Kubernetes
